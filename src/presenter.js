@@ -1,4 +1,4 @@
-import ImpuestoPorEstado from "./operaciones";
+import { PrecioNeto, ImpuestoPorEstado } from "./operaciones";
 const cantidadItems = document.querySelector("#cantidad-items");
 const div = document.querySelector("#cantidad-items-mostrar");
 const estados = document.querySelector("#estados");
@@ -18,5 +18,6 @@ formulario.addEventListener("submit", (event) => {
     cantidadItems.value +
     precioPorItem.value +
     ImpuestoPorEstado(impuestos, estados.value) +
+    PrecioNeto(cantidadItems.value, precioPorItem.value) +
     "</p>";
 });
