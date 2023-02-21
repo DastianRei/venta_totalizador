@@ -6,6 +6,7 @@ import {
 const cantidadItems = document.querySelector("#cantidad-items");
 const divPrecioNeto = document.querySelector("#precio-neto");
 const divPorcentaje = document.querySelector("#porcentaje-div");
+const divPorcentajeEstado = document.querySelector("#porcentaje-estado-div");
 const estados = document.querySelector("#estados");
 const precioPorItem = document.querySelector("#precio-por-item");
 const formulario = document.querySelector("#totalizador-form");
@@ -23,6 +24,11 @@ formulario.addEventListener("submit", (event) => {
   divPorcentaje.innerHTML =
     "<p>" +
     CalcularPorcentaje(cantidadItems.value, precioPorItem.value) +
+    "%" +
+    "</p>";
+  divPorcentajeEstado.innerHTML =
+    "<p>" +
+    ImpuestoPorEstado(impuestos,estados.value) +
     "%" +
     "</p>";
 });
