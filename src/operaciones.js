@@ -33,4 +33,10 @@ function CalcularPorcentaje(cantItems, precioItem) {
   }
   return descuento;
 }
-export { PrecioNeto, ImpuestoPorEstado, CalcularPorcentaje };
+function PrecioTotal(cantidadItems, precioItem, estado, impuestos) {
+  const precioNeto = PrecioNeto(cantidadItems, precioItem);
+  const calcularPorcentaje = CalcularPorcentaje(cantidadItems, precioItem)/100;
+  const impuesto = ImpuestoPorEstado(impuestos, estado)/100;
+  return precioNeto + (precioNeto * impuesto) - (precioNeto * calcularPorcentaje);
+}
+export { PrecioNeto, ImpuestoPorEstado, CalcularPorcentaje, PrecioTotal };

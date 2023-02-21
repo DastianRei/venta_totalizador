@@ -2,11 +2,13 @@ import {
   PrecioNeto,
   ImpuestoPorEstado,
   CalcularPorcentaje,
+  PrecioTotal,
 } from "./operaciones";
 const cantidadItems = document.querySelector("#cantidad-items");
 const divPrecioNeto = document.querySelector("#precio-neto");
 const divPorcentaje = document.querySelector("#porcentaje-div");
 const divPorcentajeEstado = document.querySelector("#porcentaje-estado-div");
+const divPrecioTotal = document.querySelector("#precio-total");
 const estados = document.querySelector("#estados");
 const precioPorItem = document.querySelector("#precio-por-item");
 const formulario = document.querySelector("#totalizador-form");
@@ -27,8 +29,14 @@ formulario.addEventListener("submit", (event) => {
     "%" +
     "</p>";
   divPorcentajeEstado.innerHTML =
+    "<p>" + ImpuestoPorEstado(impuestos, estados.value) + "%" + "</p>";
+  divPrecioTotal.innerHTML =
     "<p>" +
-    ImpuestoPorEstado(impuestos,estados.value) +
-    "%" +
+    PrecioTotal(
+      cantidadItems.value,
+      precioPorItem.value,
+      estados.value,
+      impuestos
+    ) +
     "</p>";
 });
